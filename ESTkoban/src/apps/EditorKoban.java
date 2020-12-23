@@ -48,13 +48,12 @@ public class EditorKoban extends JFrame {
 	private static final int TAMANHO_AZULEJO = 40;
 	private static final int DIMENSAO_ARMAZEM = 16;
 	
-	// constantes para as v�rias ac��es
-	private static final int NADA = 0;
-	private static final int POR_OPERARIO = 1;
-	private static final int POR_CAIXOTE = 2;
-	private static final int POR_AZULEJO = 3;
-	private static final int POR_PORTA = 4;
-	private static final int POR_TRIGGER = 5;
+	private EstadoNada estadoNada = new EstadoNada();
+	private EstadoPorOperario estadoPorOperario = new EstadoPorOperario();
+	private EstadoPorCaixote estadoPorCaixote = new EstadoPorCaixote();
+	private EstadoPorAzulejo estadoPorAzulejo = new EstadoPorAzulejo();
+	private EstadoPorPorta estadoPorPorta = new EstadoPorPorta();
+	private EstadoPorTrigger estadoPorTrigger = new EstadoPorTrigger();
 	
 	// constantes para os v�rios azulejos a inserir
 	private static final int VAZIO = 0;	
@@ -70,7 +69,8 @@ public class EditorKoban extends JFrame {
 	private static final int PORTA_FECHADA = 10;
 
 	// qual a accao que se est� a realizar
-	private int acaoAtual = NADA;
+	//private int acaoAtual = NADA;
+	private EstadoEdicao estadoAtual = estadoNada; 
 
 	// indica qual o azulejo que se est� a inserir
 	private int azulejoSel = VAZIO;
@@ -158,7 +158,7 @@ public class EditorKoban extends JFrame {
 		} 
 
 		// definir que a acao atual é nao fazer nada
-		acaoAtual = NADA;
+		estadoAtual = estadoNada;
 		// nenhum dos botoes esta selecionado
 		btGroup.clearSelection();
 		painelArmazem.repaint();
@@ -264,53 +264,8 @@ public class EditorKoban extends JFrame {
 	private void ratoPremido( MouseEvent e ){
 		setAlterado( true );
 		Point p = armazem.doEcranParaArmazem( e.getPoint() );
-		System.out.println("ola");
-		// TODO acabar com este switch
-		// TODO acabar com este switch
-		// TODO acabar com este switch
-		switch( acaoAtual ){
-		case NADA: break;
-		case POR_OPERARIO:
-			armazem.colocarOperario( p, operario );
-			painelArmazem.repaint();			
-			break;
-		case POR_CAIXOTE:
-			try {
-				if( armazem.getCaixote( p ) == null ) {
-					armazem.colocarCaixote( p, new Caixote( criaImagem(0) ) );
-					mapaFicheiros.addFicheiroCaixote( p, ficheirosUsados[0].getName() );
-				}
-				else { 
-					armazem.removerCaixote( p );
-					mapaFicheiros.addFicheiroCaixote( p, null );
-				}
-				painelArmazem.repaint();
-			} catch (Exception e1) {
-				// se aconteceu algo errado (n�o escolheu bem uma imagem, por exemplo), desligar a a��o atual e por tudo ao in�cio
-				//e.printStackTrace();
-				acaoAtual = NADA;
-				btGroup.clearSelection();
-			}
-			break;
-		case POR_AZULEJO:		
-			System.out.println("azulejo");
-			criarAzulejo( p );
-			painelArmazem.repaint();
-			break;
-		case POR_PORTA:
-			criarAzulejo( p );
-			portaCriada = (AzulejoPorta)armazem.getAzulejo( p );
-			painelArmazem.repaint();
-			acaoAtual = POR_TRIGGER;
-			enableToolBar( tools, false );
-			painelArmazem.setCursor( Cursor.getPredefinedCursor( Cursor.CROSSHAIR_CURSOR ));
-			break;
-		case POR_TRIGGER:
-			acaoAtual = POR_PORTA;
-			portaCriada.setTrigger( p );
-			painelArmazem.setCursor( Cursor.getDefaultCursor() );
-			enableToolBar( tools, true );
-		}
+		estadoAtual.ratoPremido(e, p);
+		painelArmazem.repaint();
 	}
 
 	/**
@@ -319,14 +274,8 @@ public class EditorKoban extends JFrame {
 	 */
 	private void ratoArrastado( MouseEvent e ){
 		Point p = armazem.doEcranParaArmazem( e.getPoint() );
-		// TODO acabar com este if
-		// TODO acabar com este if
-		// TODO acabar com este if
-		if( acaoAtual == POR_AZULEJO && p != null ){
-			setAlterado( true );			
-			criarAzulejo( p );
-			painelArmazem.repaint();
-		}
+		estadoAtual.ratoArrastado(e, p);
+		painelArmazem.repaint();
 	}
 
 	/** processa a criacao de um dado azulejo
@@ -358,7 +307,7 @@ public class EditorKoban extends JFrame {
 		catch( Exception e ){
 			// se aconteceu algo errado (n�o escolheu bem uma imagem, por exemplo), desligar a a��o atual e por tudo ao in�cio
 			//e.printStackTrace();
-			acaoAtual = NADA;
+			estadoAtual = estadoNada;
 			btGroup.clearSelection();
 		}
 	}
@@ -382,7 +331,7 @@ public class EditorKoban extends JFrame {
 			e.printStackTrace();
 			// se aconteceu algo errado (n�o escolheu bem uma imagem, por exemplo), desligar a a��o atual e por tudo ao in�cio
 			//e.printStackTrace();
-			acaoAtual = NADA;
+			estadoAtual = estadoNada;
 			btGroup.clearSelection();
 			return null;
 		}
@@ -400,7 +349,7 @@ public class EditorKoban extends JFrame {
 			e.printStackTrace();
 			// se aconteceu algo errado (n�o escolheu bem uma imagem, por exemplo), desligar a a��o atual e por tudo ao in�cio
 			//e.printStackTrace();
-			acaoAtual = NADA;
+			estadoAtual = estadoNada;
 			btGroup.clearSelection();
 			return null;
 		}
@@ -451,7 +400,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_OPERARIO;				
+				estadoAtual = estadoPorOperario;
 			}
 		});
 		return bt;
@@ -465,7 +414,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_CAIXOTE;
+				estadoAtual = estadoPorCaixote;
 				pedeImagem( "Imagem do caixote", 0 );
 			}
 		});
@@ -480,7 +429,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				azulejoSel = VAZIO;
 			}
 		});
@@ -495,7 +444,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				azulejoSel = CHAO;
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do chao", 0 );
@@ -512,7 +461,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				azulejoSel = PAREDE;
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem da parede", 0 );
@@ -529,7 +478,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				azulejoSel = FINAL;
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do final livre", 0 );
@@ -547,7 +496,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				azulejoSel = ESCADAS;
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem das escadas", 0 );
@@ -566,7 +515,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_AZULEJO;
+				estadoAtual = estadoPorAzulejo;
 				if( dx == -1 )
 					azulejoSel = DIRECIONAL_ESQ;
 				else if( dx == 1 )
@@ -591,7 +540,7 @@ public class EditorKoban extends JFrame {
 		bt.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				acaoAtual = POR_PORTA;
+				estadoAtual = estadoPorPorta;
 				azulejoSel = aberto? PORTA_ABERTA: PORTA_FECHADA;
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem da porta aberta", 0 );
@@ -733,6 +682,81 @@ public class EditorKoban extends JFrame {
 		
 	}
 	
+	private class EstadoEdicao {
+		
+		void ratoPremido( MouseEvent e, Point p ) {
+			
+		}
+		void ratoArrastado(MouseEvent e, Point p  ) {
+			
+		}
+	}
+	
+	private class EstadoNada extends EstadoEdicao {
+		
+	}
+	private class EstadoPorOperario extends EstadoEdicao {
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			armazem.colocarOperario( p, operario );
+		}
+	}
+	private class EstadoPorCaixote extends EstadoEdicao {
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			try {
+				if( armazem.getCaixote( p ) == null ) {
+					armazem.colocarCaixote( p, new Caixote( criaImagem(0) ) );
+					mapaFicheiros.addFicheiroCaixote( p, ficheirosUsados[0].getName() );
+				}
+				else { 
+					armazem.removerCaixote( p );
+					mapaFicheiros.addFicheiroCaixote( p, null );
+				}
+				painelArmazem.repaint();
+			} catch (Exception e1) {
+				// se aconteceu algo errado (n�o escolheu bem uma imagem, por exemplo), desligar a a��o atual e por tudo ao in�cio
+				//e.printStackTrace();
+				estadoAtual = estadoNada;
+				btGroup.clearSelection();
+			}
+		}
+	}
+	private class EstadoPorAzulejo extends EstadoEdicao {
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			criarAzulejo( p );
+			painelArmazem.repaint();
+		}
+		@Override
+		void ratoArrastado(MouseEvent e , Point p) {
+			if( p != null ){
+				setAlterado( true );			
+				criarAzulejo( p );
+				painelArmazem.repaint();
+			}
+		}
+	}
+	private class EstadoPorPorta extends EstadoEdicao {
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			criarAzulejo( p );
+			portaCriada = (AzulejoPorta)armazem.getAzulejo( p );
+			painelArmazem.repaint();
+			estadoAtual = estadoPorTrigger;
+			enableToolBar( tools, false );
+			painelArmazem.setCursor( Cursor.getPredefinedCursor( Cursor.CROSSHAIR_CURSOR ));
+		}
+	}
+	private class EstadoPorTrigger extends EstadoEdicao {
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			estadoAtual = estadoPorPorta;
+			portaCriada.setTrigger( p );
+			painelArmazem.setCursor( Cursor.getDefaultCursor() );
+			enableToolBar( tools, true );
+		}
+	}
 
 
 	/**
