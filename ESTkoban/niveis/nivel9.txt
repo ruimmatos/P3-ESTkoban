@@ -1,0 +1,153 @@
+fundo.png
+parede 7,0 parede.png
+parede 8,0 parede.png
+parede 9,0 parede.png
+parede 10,0 parede.png
+parede 11,0 parede.png
+parede 7,1 parede.png
+chao 8,1 chao.png
+chao 9,1 chao.png
+chao 10,1 chao.png
+parede 11,1 parede.png
+parede 12,1 parede.png
+parede 13,1 parede.png
+parede 14,1 parede.png
+parede 15,1 parede.png
+parede 7,2 parede.png
+chao 8,2 chao.png
+parede 9,2 parede.png
+chao 10,2 chao.png
+parede 11,2 parede.png
+parede 12,2 parede.png
+chao 13,2 chao.png
+chao 14,2 chao.png
+parede 15,2 parede.png
+parede 7,3 parede.png
+chao 8,3 chao.png
+chao 9,3 chao.png
+chao 10,3 chao.png
+chao 11,3 chao.png
+chao 12,3 chao.png
+chao 13,3 chao.png
+chao 14,3 chao.png
+parede 15,3 parede.png
+parede 0,4 parede.png
+parede 1,4 parede.png
+parede 2,4 parede.png
+parede 3,4 parede.png
+parede 4,4 parede.png
+parede 5,4 parede.png
+parede 6,4 parede.png
+parede 7,4 parede.png
+parede 9,4 parede.png
+parede 10,4 parede.png
+parede 11,4 parede.png
+chao 12,4 chao.png
+chao 13,4 chao.png
+chao 14,4 chao.png
+parede 15,4 parede.png
+parede 0,5 parede.png
+final 1,5 finale.png finale_ocupado.png
+final 2,5 finale.png finale_ocupado.png
+final 3,5 finale.png finale_ocupado.png
+final 4,5 finale.png finale_ocupado.png
+chao 5,5 chao.png
+chao 6,5 chao.png
+parede 7,5 parede.png
+chao 8,5 chao.png
+chao 9,5 chao.png
+chao 10,5 chao.png
+chao 11,5 chao.png
+chao 12,5 chao.png
+parede 13,5 parede.png
+parede 14,5 parede.png
+parede 15,5 parede.png
+parede 0,6 parede.png
+final 1,6 finale.png finale_ocupado.png
+final 2,6 finale.png finale_ocupado.png
+final 3,6 finale.png finale_ocupado.png
+final 4,6 finale.png finale_ocupado.png
+chao 5,6 chao.png
+chao 6,6 chao.png
+chao 7,6 chao.png
+chao 8,6 chao.png
+chao 9,6 chao.png
+chao 10,6 chao.png
+chao 11,6 chao.png
+chao 12,6 chao.png
+parede 13,6 parede.png
+parede 14,6 parede.png
+parede 0,7 parede.png
+final 1,7 finale.png finale_ocupado.png
+final 2,7 finale.png finale_ocupado.png
+final 3,7 finale.png finale_ocupado.png
+final 4,7 finale.png finale_ocupado.png
+chao 5,7 chao.png
+chao 6,7 chao.png
+parede 7,7 parede.png
+chao 8,7 chao.png
+chao 9,7 chao.png
+chao 10,7 chao.png
+chao 11,7 chao.png
+chao 12,7 chao.png
+chao 13,7 chao.png
+parede 14,7 parede.png
+parede 0,8 parede.png
+parede 1,8 parede.png
+parede 2,8 parede.png
+parede 3,8 parede.png
+parede 4,8 parede.png
+parede 5,8 parede.png
+parede 6,8 parede.png
+parede 7,8 parede.png
+chao 8,8 chao.png
+chao 9,8 chao.png
+chao 10,8 chao.png
+chao 11,8 chao.png
+escadas 12,8 escadas_horiz.png
+escadas 13,8 escadas_esqbaixo.png
+parede 14,8 parede.png
+parede 7,9 parede.png
+chao 8,9 chao.png
+chao 9,9 chao.png
+chao 10,9 chao.png
+chao 11,9 chao.png
+chao 12,9 chao.png
+escadas 13,9 escadas_vert.png
+parede 14,9 parede.png
+parede 7,10 parede.png
+parede 8,10 parede.png
+parede 9,10 parede.png
+chao 10,10 botao.png
+parede 11,10 parede.png
+parede 12,10 parede.png
+escadas 13,10 escadas_vert.png
+parede 14,10 parede.png
+parede 9,11 parede.png
+escadas 10,11 escadas_esqbaixo.png
+escadas 11,11 escadas_horiz.png
+escadas 12,11 escadas_horiz.png
+escadas 13,11 escadas_dircima.png
+parede 14,11 parede.png
+parede 9,12 parede.png
+parede 10,12 parede.png
+parede 11,12 parede.png
+parede 12,12 parede.png
+parede 13,12 parede.png
+parede 14,12 parede.png
+porta 8,4 F 10,10 porta_aberta_h.png porta_fechada_h.png
+
+caixote 10,2 caixote.png
+caixote 13,3 caixote.png
+caixote 9,5 caixote.png
+caixote 12,5 caixote.png
+caixote 8,6 caixote.png
+caixote 10,6 caixote.png
+caixote 11,6 caixote.png
+caixote 8,7 caixote.png
+caixote 11,7 caixote.png
+caixote 10,8 caixote.png
+caixote 9,9 caixote.png
+caixote 11,9 caixote.png
+
+operario 13,7 operario_esq.png operario_cima.png operario_dir.png operario_baixo.png

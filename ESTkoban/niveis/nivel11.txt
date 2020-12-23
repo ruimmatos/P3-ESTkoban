@@ -1,0 +1,146 @@
+fundo2.png
+parede 9,0 parede2.png
+parede 10,0 parede2.png
+parede 11,0 parede2.png
+parede 12,0 parede2.png
+parede 13,0 parede2.png
+parede 3,1 parede2.png
+parede 4,1 parede2.png
+parede 5,1 parede2.png
+parede 6,1 parede2.png
+parede 7,1 parede2.png
+parede 8,1 parede2.png
+parede 9,1 parede2.png
+chao 10,1 chao2.png
+chao 11,1 chao2.png
+chao 12,1 chao2.png
+parede 13,1 parede2.png
+parede 14,1 parede2.png
+parede 2,2 parede2.png
+parede 3,2 parede2.png
+chao 4,2 chao2.png
+parede 5,2 parede2.png
+chao 6,2 chao2.png
+chao 7,2 chao2.png
+parede 8,2 parede2.png
+parede 9,2 parede2.png
+chao 10,2 chao2.png
+chao 11,2 chao2.png
+chao 12,2 chao2.png
+chao 13,2 chao2.png
+parede 14,2 parede2.png
+parede 2,3 parede2.png
+chao 3,3 chao2.png
+chao 4,3 chao2.png
+chao 5,3 chao2.png
+chao 6,3 chao2.png
+chao 7,3 chao2.png
+chao 8,3 chao2.png
+chao 9,3 chao2.png
+chao 10,3 chao2.png
+chao 11,3 chao2.png
+chao 12,3 chao2.png
+chao 13,3 chao2.png
+parede 14,3 parede2.png
+parede 2,4 parede2.png
+chao 3,4 chao2.png
+chao 4,4 chao2.png
+chao 5,4 chao2.png
+chao 6,4 chao2.png
+chao 7,4 chao2.png
+parede 8,4 parede2.png
+parede 9,4 parede2.png
+parede 10,4 parede2.png
+chao 11,4 chao2.png
+chao 12,4 chao2.png
+chao 13,4 chao2.png
+parede 14,4 parede2.png
+parede 2,5 parede2.png
+parede 3,5 parede2.png
+parede 4,5 parede2.png
+chao 5,5 chao2.png
+parede 6,5 parede2.png
+parede 7,5 parede2.png
+parede 8,5 parede2.png
+parede 9,5 parede2.png
+parede 10,5 parede2.png
+chao 11,5 chao2.png
+parede 12,5 parede2.png
+parede 13,5 parede2.png
+parede 14,5 parede2.png
+parede 2,6 parede2.png
+chao 3,6 chao2.png
+chao 4,6 chao2.png
+chao 5,6 chao2.png
+chao 6,6 chao2.png
+parede 7,6 parede2.png
+parede 8,6 parede2.png
+parede 9,6 parede2.png
+chao 10,6 chao2.png
+final 11,6 finale2.png finale2_ocupado.png
+final 12,6 finale2.png finale2_ocupado.png
+parede 13,6 parede2.png
+parede 2,7 parede2.png
+chao 3,7 chao2.png
+chao 4,7 chao2.png
+chao 5,7 chao2.png
+chao 6,7 chao2.png
+direcao 7,7 -1 0 seta2_dir.png
+direcao 8,7 -1 0 seta2_dir.png
+direcao 9,7 -1 0 seta2_dir.png
+final 10,7 finale2.png finale2_ocupado.png
+final 11,7 finale2.png finale2_ocupado.png
+final 12,7 finale2.png finale2_ocupado.png
+parede 13,7 parede2.png
+parede 2,8 parede2.png
+chao 3,8 chao2.png
+chao 4,8 chao2.png
+chao 5,8 chao2.png
+chao 6,8 chao2.png
+parede 7,8 parede2.png
+parede 8,8 parede2.png
+parede 9,8 parede2.png
+final 10,8 finale2.png finale2_ocupado.png
+final 11,8 finale2.png finale2_ocupado.png
+final 12,8 finale2.png finale2_ocupado.png
+parede 13,8 parede2.png
+parede 2,9 parede2.png
+chao 3,9 chao2.png
+chao 4,9 chao2.png
+chao 5,9 chao2.png
+chao 6,9 chao2.png
+parede 7,9 parede2.png
+parede 9,9 parede2.png
+final 10,9 finale2.png finale2_ocupado.png
+final 11,9 finale2.png finale2_ocupado.png
+final 12,9 finale2.png finale2_ocupado.png
+parede 13,9 parede2.png
+parede 2,10 parede2.png
+chao 3,10 chao2.png
+chao 4,10 chao2.png
+parede 5,10 parede2.png
+parede 6,10 parede2.png
+parede 7,10 parede2.png
+parede 9,10 parede2.png
+parede 10,10 parede2.png
+parede 11,10 parede2.png
+parede 12,10 parede2.png
+parede 13,10 parede2.png
+parede 2,11 parede2.png
+parede 3,11 parede2.png
+parede 4,11 parede2.png
+parede 5,11 parede2.png
+
+caixote 11,2 caixote2.png
+caixote 12,2 caixote2.png
+caixote 7,3 caixote2.png
+caixote 5,4 caixote2.png
+caixote 11,5 caixote2.png
+caixote 4,6 caixote2.png
+caixote 4,7 caixote2.png
+caixote 6,7 caixote2.png
+caixote 8,7 caixote2.png
+caixote 4,9 caixote2.png
+caixote 5,9 caixote2.png
+
+operario 7,2 operario2_esq.png operario2_cima.png operario2_dir.png operario2_baixo.png

@@ -1,0 +1,53 @@
+fundo.png
+parede 5,2 parede.png
+parede 6,2 parede.png
+parede 7,2 parede.png
+parede 5,3 parede.png
+final 6,3 finale.png finale_ocupado.png
+parede 7,3 parede.png
+parede 5,4 parede.png
+chao 6,4 chao.png
+parede 7,4 parede.png
+parede 2,5 parede.png
+parede 3,5 parede.png
+parede 4,5 parede.png
+parede 5,5 parede.png
+chao 6,5 chao.png
+parede 7,5 parede.png
+parede 8,5 parede.png
+parede 9,5 parede.png
+parede 10,5 parede.png
+parede 2,6 parede.png
+final 3,6 finale.png finale_ocupado.png
+chao 4,6 chao.png
+chao 5,6 chao.png
+chao 6,6 chao.png
+chao 7,6 chao.png
+chao 8,6 chao.png
+final 9,6 finale.png finale_ocupado.png
+parede 10,6 parede.png
+parede 2,7 parede.png
+parede 3,7 parede.png
+parede 4,7 parede.png
+parede 5,7 parede.png
+chao 6,7 chao.png
+parede 7,7 parede.png
+parede 8,7 parede.png
+parede 9,7 parede.png
+parede 10,7 parede.png
+parede 5,8 parede.png
+chao 6,8 chao.png
+parede 7,8 parede.png
+parede 5,9 parede.png
+final 6,9 finale.png finale_ocupado.png
+parede 7,9 parede.png
+parede 5,10 parede.png
+parede 6,10 parede.png
+parede 7,10 parede.png
+
+caixote 6,5 caixote.png
+caixote 5,6 caixote.png
+caixote 7,6 caixote.png
+caixote 6,7 caixote.png
+
+operario 6,6 operario_esq.png operario_cima.png operario_dir.png operario_baixo.png 

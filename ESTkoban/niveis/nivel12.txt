@@ -1,0 +1,210 @@
+fundo2.png
+parede 2,0 parede2.png
+parede 3,0 parede2.png
+parede 4,0 parede2.png
+parede 5,0 parede2.png
+parede 2,1 parede2.png
+chao 3,1 chao2.png
+chao 4,1 chao2.png
+parede 5,1 parede2.png
+parede 6,1 parede2.png
+parede 7,1 parede2.png
+parede 8,1 parede2.png
+parede 9,1 parede2.png
+parede 10,1 parede2.png
+parede 11,1 parede2.png
+parede 12,1 parede2.png
+parede 13,1 parede2.png
+parede 14,1 parede2.png
+parede 15,1 parede2.png
+parede 2,2 parede2.png
+chao 3,2 chao2.png
+chao 4,2 chao2.png
+chao 5,2 chao2.png
+chao 6,2 chao2.png
+chao 7,2 chao2.png
+chao 8,2 chao2.png
+chao 10,2 chao2.png
+chao 11,2 chao2.png
+chao 12,2 chao2.png
+chao 13,2 chao2.png
+chao 14,2 chao2.png
+parede 15,2 parede2.png
+parede 2,3 parede2.png
+chao 3,3 chao2.png
+chao 4,3 chao2.png
+parede 5,3 parede2.png
+chao 6,3 chao2.png
+chao 7,3 chao2.png
+chao 8,3 chao2.png
+parede 9,3 parede2.png
+chao 10,3 chao2.png
+chao 11,3 chao2.png
+chao 12,3 chao2.png
+chao 13,3 chao2.png
+chao 14,3 chao2.png
+parede 15,3 parede2.png
+parede 2,4 parede2.png
+chao 3,4 chao2.png
+chao 4,4 chao2.png
+chao 5,4 chao2.png
+chao 6,4 chao2.png
+chao 7,4 chao2.png
+chao 8,4 chao2.png
+chao 9,4 chao2.png
+parede 10,4 parede2.png
+chao 11,4 chao2.png
+chao 12,4 chao2.png
+chao 13,4 chao2.png
+chao 14,4 chao2.png
+parede 15,4 parede2.png
+parede 0,5 parede2.png
+parede 1,5 parede2.png
+parede 2,5 parede2.png
+chao 3,5 chao2.png
+chao 4,5 chao2.png
+parede 5,5 parede2.png
+chao 6,5 chao2.png
+parede 7,5 parede2.png
+chao 8,5 chao2.png
+chao 9,5 chao2.png
+parede 10,5 parede2.png
+parede 11,5 parede2.png
+parede 12,5 parede2.png
+parede 13,5 parede2.png
+chao 14,5 chao2.png
+parede 15,5 parede2.png
+parede 0,6 parede2.png
+chao 1,6 chao2.png
+parede 2,6 parede2.png
+chao 3,6 chao2.png
+chao 4,6 chao2.png
+chao 5,6 chao2.png
+chao 6,6 chao2.png
+chao 7,6 chao2.png
+chao 8,6 chao2.png
+chao 9,6 chao2.png
+parede 10,6 parede2.png
+parede 11,6 parede2.png
+chao 12,6 chao2.png
+chao 13,6 chao2.png
+chao 14,6 chao2.png
+parede 15,6 parede2.png
+parede 0,7 parede2.png
+chao 1,7 chao2.png
+chao 2,7 botao2.png
+chao 3,7 chao2.png
+chao 4,7 chao2.png
+chao 5,7 chao2.png
+chao 6,7 chao2.png
+parede 7,7 parede2.png
+chao 8,7 chao2.png
+parede 9,7 parede2.png
+chao 10,7 chao2.png
+chao 11,7 chao2.png
+chao 12,7 chao2.png
+parede 13,7 parede2.png
+chao 14,7 chao2.png
+parede 15,7 parede2.png
+parede 0,8 parede2.png
+chao 1,8 chao2.png
+chao 2,8 chao2.png
+chao 3,8 chao2.png
+chao 4,8 chao2.png
+chao 5,8 chao2.png
+chao 6,8 chao2.png
+chao 7,8 chao2.png
+chao 8,8 chao2.png
+chao 9,8 chao2.png
+chao 10,8 chao2.png
+chao 11,8 chao2.png
+chao 12,8 chao2.png
+chao 13,8 chao2.png
+chao 14,8 chao2.png
+parede 15,8 parede2.png
+parede 0,9 parede2.png
+parede 1,9 parede2.png
+parede 2,9 parede2.png
+parede 3,9 parede2.png
+parede 4,9 parede2.png
+chao 5,9 chao2.png
+chao 6,9 chao2.png
+parede 7,9 parede2.png
+parede 8,9 parede2.png
+parede 9,9 parede2.png
+parede 10,9 parede2.png
+parede 11,9 parede2.png
+parede 12,9 parede2.png
+parede 13,9 parede2.png
+parede 14,9 parede2.png
+parede 15,9 parede2.png
+parede 2,10 parede2.png
+chao 3,10 chao2.png
+chao 4,10 chao2.png
+chao 5,10 chao2.png
+chao 6,10 chao2.png
+chao 7,10 chao2.png
+chao 8,10 chao2.png
+parede 9,10 parede2.png
+parede 2,11 parede2.png
+chao 3,11 chao2.png
+chao 4,11 chao2.png
+chao 5,11 chao2.png
+chao 6,11 chao2.png
+chao 7,11 chao2.png
+chao 8,11 chao2.png
+parede 9,11 parede2.png
+parede 2,12 parede2.png
+final 3,12 finale2.png finale2_ocupado.png
+final 4,12 finale2.png finale2_ocupado.png
+final 5,12 finale2.png finale2_ocupado.png
+final 6,12 finale2.png finale2_ocupado.png
+final 7,12 finale2.png finale2_ocupado.png
+final 8,12 finale2.png finale2_ocupado.png
+parede 9,12 parede2.png
+parede 2,13 parede2.png
+final 3,13 finale2.png finale2_ocupado.png
+final 4,13 finale2.png finale2_ocupado.png
+final 5,13 finale2.png finale2_ocupado.png
+final 6,13 finale2.png finale2_ocupado.png
+final 7,13 finale2.png finale2_ocupado.png
+final 8,13 finale2.png finale2_ocupado.png
+parede 9,13 parede2.png
+parede 2,14 parede2.png
+final 3,14 finale2.png finale2_ocupado.png
+final 4,14 finale2.png finale2_ocupado.png
+final 5,14 finale2.png finale2_ocupado.png
+final 6,14 finale2.png finale2_ocupado.png
+final 7,14 finale2.png finale2_ocupado.png
+final 8,14 finale2.png finale2_ocupado.png
+parede 9,14 parede2.png
+parede 2,15 parede2.png
+parede 3,15 parede2.png
+parede 4,15 parede2.png
+parede 5,15 parede2.png
+parede 6,15 parede2.png
+parede 7,15 parede2.png
+parede 8,15 parede2.png
+parede 9,15 parede2.png
+porta 9,2 F 2,7 porta2_aberta_v.png porta2_fechada_v.png
+
+caixote 7,2 caixote2.png
+caixote 11,2 caixote2.png
+caixote 13,2 caixote2.png
+caixote 4,3 caixote2.png
+caixote 7,3 caixote2.png
+caixote 12,3 caixote2.png
+caixote 5,4 caixote2.png
+caixote 7,4 caixote2.png
+caixote 4,5 caixote2.png
+caixote 3,6 caixote2.png
+caixote 5,6 caixote2.png
+caixote 7,6 caixote2.png
+caixote 5,7 caixote2.png
+caixote 8,7 caixote2.png
+caixote 4,8 caixote2.png
+caixote 9,8 caixote2.png
+caixote 11,8 caixote2.png
+caixote 13,8 caixote2.png
+
+operario 1,6 operario2_esq.png operario2_cima.png operario2_dir.png operario2_baixo.png
