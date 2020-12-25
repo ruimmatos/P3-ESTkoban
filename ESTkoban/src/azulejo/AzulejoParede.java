@@ -6,7 +6,7 @@ import prof.jogos2D.image.ComponenteVisual;
 
 
 /**
- * define um azulejo que é uma parede, logo não pode ter nem caixotes nem operários
+ * define um azulejo que ï¿½ uma parede, logo nï¿½o pode ter nem caixotes nem operï¿½rios
  */
 public class AzulejoParede extends AzulejoChao {
 
@@ -26,4 +26,9 @@ public class AzulejoParede extends AzulejoChao {
 	public boolean podeOcupar( Caixote op ){
 		return false;
 	}	
+	
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoParede(this);
+	}
 }

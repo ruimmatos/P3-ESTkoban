@@ -150,76 +150,37 @@ public class LeitorFicheirosESTkoban {
 	 */
 	public static void gravarFicheiro(String nomeFich, Armazem arm, MapaFicheiros mapaFich ) throws IOException {
 		PrintWriter fout;  // escritor de ficheiros
-
-		ArrayList<Azulejo> ultimos = new ArrayList<Azulejo>();
+		//ArrayList<Azulejo> ultimos = new ArrayList<Azulejo>();
 
 		try {
 			fout = new PrintWriter(new BufferedWriter(new FileWriter(nomeFich)));
 
 			// escrever o fundo
 			fout.println( mapaFich.getFicheiroFundo() );
-
 			// escrever a matriz dos azulejos
+			VisitanteAzulejos v = new GravaAzulejo(fout, mapaFich);
 			for ( Azulejo a : arm.getAzulejos() ) {
 				if( a == null )
 					continue;
-				Point p = a.getPosicao();
-				// TODO estes instanceofs devem desaparecer todos
-				// TODO estes instanceofs devem desaparecer todos
-				// TODO estes instanceofs devem desaparecer todos
-				if( a instanceof AzulejoFinal ) {
-					fout.print( "final " + p.x + "," + p.y );			
-				}
-				else if( a instanceof AzulejoParede ) {
-					fout.print( "parede " + p.x + "," + p.y );			
-				}					
-				else if( a instanceof AzulejoEscadas ){
-					fout.print( "escadas " + p.x + "," + p.y );
-				}
-				else if( a instanceof AzulejoPorta ){
-					// as portas tem de ser os ultimos, para se ter a certeza de que 
-					// quando se le o ficheiro, os triggers ja estao todos criados
-					ultimos.add( a );
+				
+//				// TODO estes instanceofs devem desaparecer todos
+//				// TODO estes instanceofs devem desaparecer todos
+//				// TODO estes instanceofs devem desaparecer todos
+	
+				a.aceita(v);
+			}		
+			
+			VisitanteAzulejos vPortas = new GravaPortas(fout, mapaFich);
+			
+			for( Azulejo a :  arm.getAzulejos() ) {				
+				if( a == null )
 					continue;
-				}
-				else if( a instanceof AzulejoDirecional ){
-					AzulejoDirecional ad = (AzulejoDirecional)a; 
-					fout.print( "direcao " + p.x + "," + p.y + " " + ad.getDx() + " "+ ad.getDy() );
-				}
-				else if( a instanceof AzulejoChao ){
-					fout.print( "chao " + p.x + "," + p.y );
-				}
-
-				fout.println( " " + mapaFich.getFicheiroAzulejo( p ) );
-			}				
-
-			for( Azulejo a : ultimos ) {				
-				Point pa = a.getPosicao();
+				
 				// TODO estes instanceofs devem desaparecer todos
 				// TODO estes instanceofs devem desaparecer todos
 				// TODO estes instanceofs devem desaparecer todos
-				if( a instanceof AzulejoFinal ) {
-					fout.print( "final " + pa.x + "," + pa.y );			
-				}
-				else if( a instanceof AzulejoParede ) {
-					fout.print( "parede " + pa.x + "," + pa.y );			
-				}					
-				else if( a instanceof AzulejoEscadas ){
-					fout.print( "escadas " + pa.x + "," + pa.y );
-				}
-				else if( a instanceof AzulejoPorta ){
-					AzulejoPorta ap = (AzulejoPorta)a; 
-					fout.print( "porta " + pa.x + "," + pa.y + " " + (ap.estaAberto()? "A ": "F ") + ap.getTrigger().x + "," + ap.getTrigger().y );
-				}
-				else if( a instanceof AzulejoDirecional ){
-					AzulejoDirecional ad = (AzulejoDirecional)a; 
-					fout.print( "direcao " + pa.x + "," + pa.y + " " + ad.getDx() + " "+ ad.getDy() );
-				}
-				else if( a instanceof AzulejoChao ){
-					fout.print( "chao " + pa.x + "," + pa.y );
-				}
 
-				fout.println( " " + mapaFich.getFicheiroAzulejo( pa ) );
+				a.aceita(vPortas);
 			}
 
 			fout.println( );

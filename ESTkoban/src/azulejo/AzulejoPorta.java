@@ -96,4 +96,9 @@ public class AzulejoPorta extends AzulejoChao {
 		imgAberto.setPosicaoCentro( pc );
 		imgFechado.setPosicaoCentro( pc );
 	}
+	
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoPorta(this);
+	}
 }

@@ -69,4 +69,9 @@ public class AzulejoDirecional extends AzulejoChao {
 		int dy = op.getPosicao().y - getPosicao().y;
 		return this.dx == dx && this.dy == dy;
 	}
+	
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoDirecional(this);
+	}
 }

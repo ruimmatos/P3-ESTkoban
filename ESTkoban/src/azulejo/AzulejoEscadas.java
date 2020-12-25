@@ -20,4 +20,9 @@ public class AzulejoEscadas extends AzulejoChao {
 	public boolean podeOcupar( Caixote op ){
 		return false;
 	}	
+	
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoEscadas(this);
+	}
 }

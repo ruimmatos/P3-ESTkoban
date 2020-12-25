@@ -103,4 +103,9 @@ public class AzulejoChao implements Azulejo {
 	public void remover( Caixote c ){
 		
 	}
+
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoChao(this);
+	}
 }

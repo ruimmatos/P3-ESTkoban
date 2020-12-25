@@ -298,8 +298,9 @@ public class EditorKoban extends JFrame {
 			case DIRECIONAL_DIR: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), -1, 0 ) ); break;
 			case DIRECIONAL_CIMA: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, 1 ) ); break;
 			case DIRECIONAL_BAIXO: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, -1 ) ); break;
+			
 			}
-			// assinalar que j� tem imagens e registar os ficheiros de imagens usados
+			// assinalar que ja tem imagens e registar os ficheiros de imagens usados
 			//pedeImagens = false;
 			if( ficheirosUsados[0] != null )
 				mapaFicheiros.addFicheiroAzulejo(p, ficheirosUsados[0].getName() + (ficheirosUsados[1]!= null? " " + ficheirosUsados[1].getName() : "") );

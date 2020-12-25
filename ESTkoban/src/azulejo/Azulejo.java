@@ -108,4 +108,10 @@ public interface Azulejo {
 	 * @param c o caixote a remover
 	 */
 	public void remover( Caixote c );
+	
+	/**
+	 * metodo que aceita um visitante - Pattern Visitor
+	 * @param v visitante 
+	 */
+	void aceita(VisitanteAzulejos v);
 }

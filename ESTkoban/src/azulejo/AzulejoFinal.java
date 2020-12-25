@@ -57,4 +57,9 @@ public class AzulejoFinal extends AzulejoChao {
 		else
 			super.desenhar(g);
 	}	
+	
+	@Override
+	public void aceita(VisitanteAzulejos v) {
+		v.visitaAzulejoFinal(this);
+	}
 }
