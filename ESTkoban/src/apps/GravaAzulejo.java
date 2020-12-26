@@ -9,8 +9,9 @@ import azulejo.AzulejoFinal;
 import azulejo.AzulejoParede;
 import azulejo.AzulejoPorta;
 import azulejo.VisitanteAzulejos;
+import azulejo.VisitanteAzulejosDefault;
 
-public class GravaAzulejo implements VisitanteAzulejos{
+public class GravaAzulejo extends VisitanteAzulejosDefault {
 	
 	PrintWriter fout;
 	MapaFicheiros mapaFich;
@@ -54,12 +55,5 @@ public class GravaAzulejo implements VisitanteAzulejos{
 		fout.println( " " + mapaFich.getFicheiroAzulejo( a.getPosicao() ) );
 
 	}
-
-	@Override
-	public void visitaAzulejoPorta(AzulejoPorta a) {
-		
-	}
-	
-
 
 }

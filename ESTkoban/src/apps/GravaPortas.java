@@ -9,8 +9,9 @@ import azulejo.AzulejoFinal;
 import azulejo.AzulejoParede;
 import azulejo.AzulejoPorta;
 import azulejo.VisitanteAzulejos;
+import azulejo.VisitanteAzulejosDefault;
 
-public class GravaPortas implements VisitanteAzulejos{
+public class GravaPortas extends VisitanteAzulejosDefault {
 
 	PrintWriter fout;
 	MapaFicheiros mapaFich;
@@ -18,28 +19,6 @@ public class GravaPortas implements VisitanteAzulejos{
 	public GravaPortas(PrintWriter fout, MapaFicheiros mapaFich) {
 		this.fout = fout;
 		this.mapaFich = mapaFich;
-	}
-
-	@Override
-	public void visitaAzulejoChao(AzulejoChao a) {
-
-	}
-
-	@Override
-	public void visitaAzulejoDirecional(AzulejoDirecional a) {
-	
-	}
-
-	@Override
-	public void visitaAzulejoEscadas(AzulejoEscadas a) {
-	}
-
-	@Override
-	public void visitaAzulejoFinal(AzulejoFinal a) {
-	}
-
-	@Override
-	public void visitaAzulejoParede(AzulejoParede a) {
 	}
 
 	@Override
