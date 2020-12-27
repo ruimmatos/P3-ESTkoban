@@ -110,9 +110,10 @@ public class AzulejoChao implements Azulejo {
 	}
 	
 	@Override
-	public Azulejo clone() {
+	public Azulejo clone(ComponenteVisual imagem) {
 		try {
 			Azulejo a = (Azulejo)super.clone();
+			a.setVisual(imagem);
 			return a;
 		} catch (CloneNotSupportedException e) {
 			return null;

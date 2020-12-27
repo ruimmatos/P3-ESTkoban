@@ -266,7 +266,7 @@ public class EditorKoban extends JFrame {
 		setAlterado( true );
 		Point p = armazem.doEcranParaArmazem( e.getPoint() );
 		estadoAtual.ratoPremido(e, p);
-		painelArmazem.repaint();
+		//painelArmazem.repaint();
 	}
 
 	/**
@@ -276,7 +276,7 @@ public class EditorKoban extends JFrame {
 	private void ratoArrastado( MouseEvent e ){
 		Point p = armazem.doEcranParaArmazem( e.getPoint() );
 		estadoAtual.ratoArrastado(e, p);
-		painelArmazem.repaint();
+		//painelArmazem.repaint();
 	}
 
 	/** processa a criacao de um dado azulejo
@@ -287,7 +287,11 @@ public class EditorKoban extends JFrame {
 		// TODO acabar com este switch
 		// TODO acabar com este switch
 		try {
-			armazem.colocarAzulejo( p, azulejoSel.clone() );
+			if(azulejoSel != null)
+				armazem.colocarAzulejo( p, azulejoSel.clone(criaImagem(0)) ) ;
+			else
+				armazem.colocarAzulejo(p, null);
+			
 //			switch( azulejoSel ){
 //			case VAZIO:	 armazem.colocarAzulejo( p, null ); break;
 //			case CHAO: 	 armazem.colocarAzulejo( p, new AzulejoChao( criaImagem( 0 ) ) ); break;
@@ -449,11 +453,10 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				
-				System.out.println("ola");
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do ch�o", 0 );
 				azulejoSel = new AzulejoChao( criaImagem( 0 ) );
+
 			}
 		});
 		return bt;
@@ -468,9 +471,9 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = new AzulejoParede( criaImagem( 0 ) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem da parede", 0 );
+				azulejoSel = new AzulejoParede( criaImagem( 0 ) );
 			}
 		});
 		return bt;
@@ -485,10 +488,10 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = new AzulejoFinal( criaImagem( 0 ), criaImagem( 1 ) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do final livre", 0 );
 				imagens[1] = pedeImagem( "Imagem do final ocupado", 1 );
+				azulejoSel = new AzulejoFinal( criaImagem( 0 ), criaImagem( 1 ) );
 			}
 		});
 		return bt;
@@ -503,9 +506,9 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = new AzulejoEscadas( criaImagem(0) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem das escadas", 0 );
+				azulejoSel = new AzulejoEscadas( criaImagem(0) );
 			}
 		});
 		return bt;
@@ -522,16 +525,17 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
+				resetImagens();
+				imagens[0] = pedeImagem( "Imagem do direcional", 0 );
 				if( dx == -1 )
 					azulejoSel = new AzulejoDirecional( criaImagem(0), 1, 0 );
 				else if( dx == 1 )
 					azulejoSel = new AzulejoDirecional( criaImagem(0), -1, 0 );
 				else if( dy == -1 )
-					azulejoSel = new AzulejoDirecional( criaImagem(0), 0, 1 );
-				else if( dy == 1 )
 					azulejoSel = new AzulejoDirecional( criaImagem(0), 0, -1 );
-				resetImagens();
-				imagens[0] = pedeImagem( "Imagem do direcional", 0 );
+				else if( dy == 1 )
+					azulejoSel = new AzulejoDirecional( criaImagem(0), 0, 1 );
+				
 			}
 		});
 		return bt;
@@ -547,11 +551,10 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorPorta;
-				azulejoSel = aberto ? new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), true ): new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), false );
 				resetImagens();
-				System.out.println("oi");
 				imagens[0] = pedeImagem( "Imagem da porta aberta", 0 );
 				imagens[1] = pedeImagem( "Imagem da porta fechada", 1 );
+				azulejoSel = aberto ? new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), true ): new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), false );
 			}
 		});
 		return bt;

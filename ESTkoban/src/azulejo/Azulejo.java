@@ -121,5 +121,5 @@ public interface Azulejo extends Cloneable {
 	 * metodo que clona um Azulejo - Pattern Prototype
 	 * @return retorna o clone de um azulejo
 	 */
-	public Azulejo clone();
+	public Azulejo clone(ComponenteVisual visual);
 }
