@@ -709,6 +709,7 @@ public class EditorKoban extends JFrame {
 		@Override
 		void ratoPremido(MouseEvent e, Point p) {
 			armazem.colocarOperario( p, operario );
+			painelArmazem.repaint();
 		}
 	}
 	private class EstadoPorCaixote extends EstadoEdicao {
