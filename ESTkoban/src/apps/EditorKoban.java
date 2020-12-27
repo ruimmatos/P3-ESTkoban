@@ -56,24 +56,25 @@ public class EditorKoban extends JFrame {
 	private EstadoPorTrigger estadoPorTrigger = new EstadoPorTrigger();
 	
 	// constantes para os v�rios azulejos a inserir
-	private static final int VAZIO = 0;	
-	private static final int CHAO = 1;
-	private static final int PAREDE = 2;
-	private static final int FINAL = 3;
-	private static final int ESCADAS = 4;
-	private static final int DIRECIONAL_ESQ = 5;
-	private static final int DIRECIONAL_DIR = 6;
-	private static final int DIRECIONAL_CIMA = 7;
-	private static final int DIRECIONAL_BAIXO = 8;
-	private static final int PORTA_ABERTA = 9;
-	private static final int PORTA_FECHADA = 10;
+//	private static final int VAZIO = 0;	
+//	private static final int CHAO = 1;
+//	private static final int PAREDE = 2;
+//	private static final int FINAL = 3;
+//	private static final int ESCADAS = 4;
+//	private static final int DIRECIONAL_ESQ = 5;
+//	private static final int DIRECIONAL_DIR = 6;
+//	private static final int DIRECIONAL_CIMA = 7;
+//	private static final int DIRECIONAL_BAIXO = 8;
+//	private static final int PORTA_ABERTA = 9;
+//	private static final int PORTA_FECHADA = 10;
 
 	// qual a accao que se est� a realizar
 	//private int acaoAtual = NADA;
 	private EstadoEdicao estadoAtual = estadoNada; 
 
 	// indica qual o azulejo que se est� a inserir
-	private int azulejoSel = VAZIO;
+	//private int azulejoSel = VAZIO;
+	private Azulejo azulejoSel = null;
 	
 	// informa��es obre o ficheiro a editar atualmente
 	private String ficheiro;
@@ -286,20 +287,21 @@ public class EditorKoban extends JFrame {
 		// TODO acabar com este switch
 		// TODO acabar com este switch
 		try {
-			switch( azulejoSel ){
-			case VAZIO:	 armazem.colocarAzulejo( p, null ); break;
-			case CHAO: 	 armazem.colocarAzulejo( p, new AzulejoChao( criaImagem( 0 ) ) ); break;
-			case PAREDE: armazem.colocarAzulejo( p, new AzulejoParede( criaImagem( 0 ) ) ); break;
-			case FINAL:  armazem.colocarAzulejo( p, new AzulejoFinal( criaImagem( 0 ), criaImagem( 1 ) ) ); break;
-			case PORTA_ABERTA:  armazem.colocarAzulejo( p, new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), true ) ); break;
-			case PORTA_FECHADA: armazem.colocarAzulejo( p, new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), false ) ); break;
-			case ESCADAS:armazem.colocarAzulejo( p, new AzulejoEscadas( criaImagem(0) ) ); break;
-			case DIRECIONAL_ESQ: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 1, 0 ) ); break;
-			case DIRECIONAL_DIR: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), -1, 0 ) ); break;
-			case DIRECIONAL_CIMA: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, 1 ) ); break;
-			case DIRECIONAL_BAIXO: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, -1 ) ); break;
+			armazem.colocarAzulejo( p, azulejoSel.clone() );
+//			switch( azulejoSel ){
+//			case VAZIO:	 armazem.colocarAzulejo( p, null ); break;
+//			case CHAO: 	 armazem.colocarAzulejo( p, new AzulejoChao( criaImagem( 0 ) ) ); break;
+//			case PAREDE: armazem.colocarAzulejo( p, new AzulejoParede( criaImagem( 0 ) ) ); break;
+//			case FINAL:  armazem.colocarAzulejo( p, new AzulejoFinal( criaImagem( 0 ), criaImagem( 1 ) ) ); break;
+//			case PORTA_ABERTA:  armazem.colocarAzulejo( p, new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), true ) ); break;
+//			case PORTA_FECHADA: armazem.colocarAzulejo( p, new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), false ) ); break;
+//			case ESCADAS:armazem.colocarAzulejo( p, new AzulejoEscadas( criaImagem(0) ) ); break;
+//			case DIRECIONAL_ESQ: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 1, 0 ) ); break;
+//			case DIRECIONAL_DIR: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), -1, 0 ) ); break;
+//			case DIRECIONAL_CIMA: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, 1 ) ); break;
+//			case DIRECIONAL_BAIXO: armazem.colocarAzulejo( p, new AzulejoDirecional( criaImagem(0), 0, -1 ) ); break;
+//			}
 			
-			}
 			// assinalar que ja tem imagens e registar os ficheiros de imagens usados
 			//pedeImagens = false;
 			if( ficheirosUsados[0] != null )
@@ -311,6 +313,7 @@ public class EditorKoban extends JFrame {
 			estadoAtual = estadoNada;
 			btGroup.clearSelection();
 		}
+		
 	}
 
 	
@@ -431,7 +434,7 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = VAZIO;
+				azulejoSel = null;
 			}
 		});
 		return bt;
@@ -446,9 +449,11 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = CHAO;
+				
+				System.out.println("ola");
 				resetImagens();
-				imagens[0] = pedeImagem( "Imagem do chao", 0 );
+				imagens[0] = pedeImagem( "Imagem do ch�o", 0 );
+				azulejoSel = new AzulejoChao( criaImagem( 0 ) );
 			}
 		});
 		return bt;
@@ -463,7 +468,7 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = PAREDE;
+				azulejoSel = new AzulejoParede( criaImagem( 0 ) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem da parede", 0 );
 			}
@@ -480,7 +485,7 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = FINAL;
+				azulejoSel = new AzulejoFinal( criaImagem( 0 ), criaImagem( 1 ) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do final livre", 0 );
 				imagens[1] = pedeImagem( "Imagem do final ocupado", 1 );
@@ -498,7 +503,7 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
-				azulejoSel = ESCADAS;
+				azulejoSel = new AzulejoEscadas( criaImagem(0) );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem das escadas", 0 );
 			}
@@ -518,13 +523,13 @@ public class EditorKoban extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorAzulejo;
 				if( dx == -1 )
-					azulejoSel = DIRECIONAL_ESQ;
+					azulejoSel = new AzulejoDirecional( criaImagem(0), 1, 0 );
 				else if( dx == 1 )
-					azulejoSel = DIRECIONAL_DIR;
+					azulejoSel = new AzulejoDirecional( criaImagem(0), -1, 0 );
 				else if( dy == -1 )
-					azulejoSel = DIRECIONAL_BAIXO;
+					azulejoSel = new AzulejoDirecional( criaImagem(0), 0, 1 );
 				else if( dy == 1 )
-					azulejoSel = DIRECIONAL_CIMA;
+					azulejoSel = new AzulejoDirecional( criaImagem(0), 0, -1 );
 				resetImagens();
 				imagens[0] = pedeImagem( "Imagem do direcional", 0 );
 			}
@@ -542,8 +547,9 @@ public class EditorKoban extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				estadoAtual = estadoPorPorta;
-				azulejoSel = aberto? PORTA_ABERTA: PORTA_FECHADA;
+				azulejoSel = aberto ? new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), true ): new AzulejoPorta( criaImagem(0), criaImagem(1), new Point( 5,5), false );
 				resetImagens();
+				System.out.println("oi");
 				imagens[0] = pedeImagem( "Imagem da porta aberta", 0 );
 				imagens[1] = pedeImagem( "Imagem da porta fechada", 1 );
 			}

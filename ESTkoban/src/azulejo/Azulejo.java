@@ -11,7 +11,7 @@ import prof.jogos2D.image.ComponenteVisual;
 /**
  * Representa os azulejos do jogo 
  */
-public interface Azulejo {
+public interface Azulejo extends Cloneable {
 
 	/** retorna a imagem do azulejo
 	 * @return a imagem do azulejo
@@ -113,5 +113,13 @@ public interface Azulejo {
 	 * metodo que aceita um visitante - Pattern Visitor
 	 * @param v visitante 
 	 */
-	void aceita(VisitanteAzulejos v);
+	public void aceita(VisitanteAzulejos v);
+
+	
+	
+	/**
+	 * metodo que clona um Azulejo - Pattern Prototype
+	 * @return retorna o clone de um azulejo
+	 */
+	public Azulejo clone();
 }

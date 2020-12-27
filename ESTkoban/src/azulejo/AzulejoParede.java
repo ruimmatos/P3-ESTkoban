@@ -31,4 +31,5 @@ public class AzulejoParede extends AzulejoChao {
 	public void aceita(VisitanteAzulejos v) {
 		v.visitaAzulejoParede(this);
 	}
+	
 }

@@ -108,4 +108,14 @@ public class AzulejoChao implements Azulejo {
 	public void aceita(VisitanteAzulejos v) {
 		v.visitaAzulejoChao(this);
 	}
+	
+	@Override
+	public Azulejo clone() {
+		try {
+			Azulejo a = (Azulejo)super.clone();
+			return a;
+		} catch (CloneNotSupportedException e) {
+			return null;
+		}
+	}
 }
