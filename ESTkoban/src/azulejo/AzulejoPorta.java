@@ -101,4 +101,13 @@ public class AzulejoPorta extends AzulejoChao {
 	public void aceita(VisitanteAzulejos v) {
 		v.visitaAzulejoPorta(this);
 	}
+	
+	@Override
+	public Azulejo clone() {
+		AzulejoPorta a = (AzulejoPorta) super.clone();
+		a.setVisual(getVisual().clone());
+		a.imgFechado = imgFechado.clone();
+		//a.setTrigger( (Point) getTrigger().clone());
+		return a;
+	}
 }

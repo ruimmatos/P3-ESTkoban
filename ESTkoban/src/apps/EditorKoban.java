@@ -288,7 +288,8 @@ public class EditorKoban extends JFrame {
 		// TODO acabar com este switch
 		try {
 			if(azulejoSel != null)
-				armazem.colocarAzulejo( p, azulejoSel.clone(criaImagem(0)) ) ;
+				
+				armazem.colocarAzulejo( p, azulejoSel.clone() ) ;
 			else
 				armazem.colocarAzulejo(p, null);
 			
@@ -742,7 +743,7 @@ public class EditorKoban extends JFrame {
 		@Override
 		void ratoArrastado(MouseEvent e , Point p) {
 			if( p != null ){
-				setAlterado( true );			
+				setAlterado( true );
 				criarAzulejo( p );
 				painelArmazem.repaint();
 			}

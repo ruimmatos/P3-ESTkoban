@@ -62,4 +62,13 @@ public class AzulejoFinal extends AzulejoChao {
 	public void aceita(VisitanteAzulejos v) {
 		v.visitaAzulejoFinal(this);
 	}
+	
+	@Override
+	public Azulejo clone() {
+		AzulejoFinal a = (AzulejoFinal) super.clone();
+		a.setVisual(getVisual().clone());
+		a.imgOcupado = imgOcupado.clone();
+		return a;
+	}
+	
 }
