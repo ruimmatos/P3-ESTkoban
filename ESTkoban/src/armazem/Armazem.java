@@ -96,9 +96,9 @@ public class Armazem {
         }
         if( !eCoordenadaValida( p ) )
             return;
-        osAzulejos[p.x][p.y] = azul;        
+        osAzulejos[p.x][p.y] = azul;
         azul.setArmazem( this );
-        azul.setPosicao( p );                
+        azul.setPosicao( p );    
     }
     
     /** coloca o caixote numa dada posição do armazém. NÃO testa se a colocação é válida 
@@ -143,7 +143,8 @@ public class Armazem {
         if( op == null ) return;
         
         op.setArmazem( this );
-        op.setPosicao( p );                
+        op.setPosicao( p );   
+        
     }
   
     /**

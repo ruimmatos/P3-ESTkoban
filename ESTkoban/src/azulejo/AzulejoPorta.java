@@ -71,6 +71,7 @@ public class AzulejoPorta extends AzulejoChao {
 	public void setTrigger(Point trigger) {
 		this.trigger = trigger;
 		Azulejo a = getArmazem().getAzulejo( trigger );
+		
 	}
 	
 	@Override
@@ -109,5 +110,18 @@ public class AzulejoPorta extends AzulejoChao {
 		a.imgFechado = imgFechado.clone();
 		//a.setTrigger( (Point) getTrigger().clone());
 		return a;
+	}
+	
+	public void updateMovimento(Point p) {
+		if(p.getX() == getTrigger().getX() && p.getY() == getTrigger().getY()) {
+			System.out.println("Estou no trigger");
+			setAberto(!aberto);
+			if( !estaAberto() )
+				setVisual( imgFechado );
+			else
+				setVisual( imgAberto );
+		}
+			
+			
 	}
 }

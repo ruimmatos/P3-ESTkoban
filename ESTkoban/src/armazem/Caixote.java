@@ -1,6 +1,8 @@
 package armazem;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 import azulejo.Azulejo;
 import prof.jogos2D.image.ComponenteVisual;
 
@@ -127,4 +129,7 @@ public class Caixote {
 	public void setFigura(ComponenteVisual fig) {
 		figura = fig;
 	}	
+	
+	
+	
 }

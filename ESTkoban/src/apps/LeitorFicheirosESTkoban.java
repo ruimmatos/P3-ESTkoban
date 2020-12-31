@@ -2,7 +2,6 @@ package apps;
 
 import java.awt.Point;
 import java.io.*;
-import java.util.ArrayList;
 
 import armazem.Armazem;
 import armazem.Caixote;
@@ -133,6 +132,11 @@ public class LeitorFicheirosESTkoban {
 		Operario op = new Operario( imgs );
 		arm.colocarOperario( p, op );
 		mapa.setFicheiroOperario( info[2] + " " + info[3] + " " + info[4] + " " + info[5] );
+		
+		
+		for(Azulejo a : arm.getAzulejos()) {
+			op.addListeners(a);
+		}
 	}
 
 	/** l� a posi��o a partir de uma string */

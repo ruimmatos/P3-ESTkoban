@@ -287,9 +287,11 @@ public class EditorKoban extends JFrame {
 		// TODO acabar com este switch
 		// TODO acabar com este switch
 		try {
-			if(azulejoSel != null)
-				
-				armazem.colocarAzulejo( p, azulejoSel.clone() ) ;
+			if(azulejoSel != null) {
+				Azulejo a = azulejoSel.clone();
+				armazem.colocarAzulejo( p, a ) ;
+		        operario.addListeners(a);
+			}
 			else
 				armazem.colocarAzulejo(p, null);
 			

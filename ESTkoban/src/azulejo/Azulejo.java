@@ -11,7 +11,7 @@ import prof.jogos2D.image.ComponenteVisual;
 /**
  * Representa os azulejos do jogo 
  */
-public interface Azulejo extends Cloneable {
+public interface Azulejo extends Cloneable, MovimentoListener {
 
 	/** retorna a imagem do azulejo
 	 * @return a imagem do azulejo
@@ -120,4 +120,7 @@ public interface Azulejo extends Cloneable {
 	 * @return retorna o clone de um azulejo
 	 */
 	public Azulejo clone();
+	
+	public void updateMovimento(Point p);
+
 }

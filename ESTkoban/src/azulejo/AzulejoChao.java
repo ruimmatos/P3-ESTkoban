@@ -75,7 +75,7 @@ public class AzulejoChao implements Azulejo {
 	}
 	
 	@Override
-	public boolean podeOcupar( Operario op ){
+	public boolean podeOcupar( Operario op ){			
 		return true;
 	}
 	
@@ -118,5 +118,8 @@ public class AzulejoChao implements Azulejo {
 		} catch (CloneNotSupportedException e) {
 			return null;
 		}
+	}
+	
+	public void updateMovimento(Point p) {
 	}
 }

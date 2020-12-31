@@ -1,31 +1,34 @@
 package armazem;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import azulejo.Azulejo;
+import azulejo.MovimentoListener;
 import prof.jogos2D.image.ComponenteVisual;
 
 /**
- * Classe que representa o operário que empurra os caixotes 
+ * Classe que representa o operï¿½rio que empurra os caixotes 
  */
 public class Operario {
 	
-	/** constantes para definir a direção para onde está virado */
+	/** constantes para definir a direï¿½ï¿½o para onde estï¿½ virado */
 	private static final int ESQUERDA = 0;
 	private static final int CIMA = 1;
 	private static final int DIREITA = 2;
 	private static final int BAIXO = 3;
 	
-	// a imagem e posição do operário
+	// a imagem e posiï¿½ï¿½o do operï¿½rio
 	private ComponenteVisual figura, figuras[];
 	private Point posicao; 
 	
-	// o armazém onde ele se mexe
+	// o armazï¿½m onde ele se mexe
 	protected Armazem armazem;
 	
 	/**
-	 * Construtor do operário
-	 * @param fig as imagens do operário. Devem estar na ordem: esquerda, cima, direita, baixo.
+	 * Construtor do operï¿½rio
+	 * @param fig as imagens do operï¿½rio. Devem estar na ordem: esquerda, cima, direita, baixo.
 	 */
 	public Operario( ComponenteVisual[] figuras ){
 		this.figuras = figuras;
@@ -33,10 +36,10 @@ public class Operario {
 	}
 
 	/**
-	 * indica se o operário se pode deslocar
+	 * indica se o operï¿½rio se pode deslocar
 	 * @param dx o deslocamento em x
 	 * @param dy o deslocamento em y
-	 * @return se se pode deslocar, ou não
+	 * @return se se pode deslocar, ou nï¿½o
 	 */
 	public boolean podeDeslocar(int dx, int dy) {
 		Point dest = (Point)getPosicao().clone();
@@ -57,10 +60,10 @@ public class Operario {
 	}
 
 	/**
-	 * desloca o operário
+	 * desloca o operï¿½rio
 	 * @param dx o deslocamento em x
 	 * @param dy o deslocamento em y
-	 * @return se o operário se deslocou, ou não
+	 * @return se o operï¿½rio se deslocou, ou nï¿½o
 	 */
 	public boolean deslocar( int dx, int dy ) {
 		Point pc = figura.getPosicaoCentro();
@@ -74,7 +77,7 @@ public class Operario {
 			figura = figuras[ BAIXO ];
 		figura.setPosicaoCentro( pc );
 		
-		// ver se pode deslocar, senão não se desloca
+		// ver se pode deslocar, senï¿½o nï¿½o se desloca
 	    if( !podeDeslocar( dx, dy ) )
 	        return false;
 	    
@@ -86,23 +89,27 @@ public class Operario {
 		if( c != null  )
 			c.deslocar(dx, dy);
 	    
-	    // o mover tem de ser repartido com o armazém,
-	    // fica aqui, mas também podia ficar no armazém
+	    // o mover tem de ser repartido com o armazï¿½m,
+	    // fica aqui, mas tambï¿½m podia ficar no armazï¿½m
 	    armazem.colocarOperario( dest, this );
+	    System.out.println("mexi");
+	    System.out.println(listeners.size());
+	    
+	    notificaListeners(dest);
 	    return true;
 	}	
 	
 	/**
-	 * devolve a posição do operário
-	 * @return a posição dooperário
+	 * devolve a posiï¿½ï¿½o do operï¿½rio
+	 * @return a posiï¿½ï¿½o dooperï¿½rio
 	 */
 	public Point getPosicao() {
 		return posicao;
 	}
 
 	/**
-	 * define a posição dooperário
-	 * @param pos a posição do operário
+	 * define a posiï¿½ï¿½o dooperï¿½rio
+	 * @param pos a posiï¿½ï¿½o do operï¿½rio
 	 */
     public void setPosicao( Point pos ){
     	posicao = pos;
@@ -110,33 +117,33 @@ public class Operario {
     }
 	
     /**
-     * indica em que armazém o operário trabalha
-     * @return o armazém em que o operário trabalha
+     * indica em que armazï¿½m o operï¿½rio trabalha
+     * @return o armazï¿½m em que o operï¿½rio trabalha
      */
 	public Armazem getArmazem() {
 		return armazem;
 	}
 	
 	/**
-	 * define o armazem onde o operário trabalha.
-	 * Só deve ser chamado pelo próprio armazém.
-	 * @param arm o armazém onde o operário vai trabalhar
+	 * define o armazem onde o operï¿½rio trabalha.
+	 * Sï¿½ deve ser chamado pelo prï¿½prio armazï¿½m.
+	 * @param arm o armazï¿½m onde o operï¿½rio vai trabalhar
 	 */
 	public void setArmazem( Armazem arm ){
 		armazem = arm;
 	}    
 
 	/**
-	 * devolve as imagens associadas ao operário. As imagens estão na ordem: esquerda, cima, direita, baixo.
-	 * @return as imagens associadas ao operário
+	 * devolve as imagens associadas ao operï¿½rio. As imagens estï¿½o na ordem: esquerda, cima, direita, baixo.
+	 * @return as imagens associadas ao operï¿½rio
 	 */
 	public ComponenteVisual[] getFiguras( ) {
 		return figuras;		
 	}
 	
 	/**
-	 * define as imagens associadas ao operário. As imagens devem estar na ordem: esquerda, cima, direita, baixo.
-	 * @param img as novas imagens do operário.
+	 * define as imagens associadas ao operï¿½rio. As imagens devem estar na ordem: esquerda, cima, direita, baixo.
+	 * @param img as novas imagens do operï¿½rio.
 	 */
 	public void setFiguras(ComponenteVisual[] img ) {
 		figuras = img;
@@ -144,10 +151,26 @@ public class Operario {
 	}	
 	
 	
-	/** desenha o operário
+	/** desenha o operï¿½rio
 	 * @param g onde desenhar
 	 */
 	public void desenhar( Graphics2D g) {
 		figura.desenhar( g );
+	}
+	
+	private ArrayList<MovimentoListener> listeners = new ArrayList<MovimentoListener>();
+	
+	private void notificaListeners(Point p) {
+    	for( int i = listeners.size() -1; i >= 0; i-- ) {
+     		listeners.get( i ).updateMovimento(p);
+       	}
+    }
+	
+	public void addListeners( MovimentoListener m) {
+		listeners.add(m);
+	}
+	
+	public void removeListeners( MovimentoListener m ) {
+		listeners.remove(m);
 	}
 }
