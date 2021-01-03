@@ -16,6 +16,12 @@ import prof.jogos2D.image.ComponenteVisual;
 public class LeitorFicheirosESTkoban {
 	// diret�rio onde est�o as imagens
 	private static String artDir = "art/";
+	
+	private static ESTkoban est;
+	
+	public static void getESTkoban (ESTkoban estkoban) {
+		est = estkoban;
+	}
 
 	/**
 	 * M�todo que faz a leitura de um ficheiro de n�vel e retorna o armaz�m
@@ -25,7 +31,7 @@ public class LeitorFicheirosESTkoban {
 	 * @param mapa o mapa com os ficheiros de imagens usados neste n�vel
 	 * @throws IOException quando a leitura corre mal
 	 */
-	public static Armazem lerFicheiro(String nomeFich, Armazem arm, MapaFicheiros mapa ) throws IOException {		
+	public static Armazem lerFicheiro(String nomeFich, Armazem arm, MapaFicheiros mapa) throws IOException {		
 		BufferedReader in = new BufferedReader( new FileReader( nomeFich ));
 
 		// come�ar com o fundo do n�vel
@@ -88,6 +94,8 @@ public class LeitorFicheirosESTkoban {
 		AzulejoFinal ac = new AzulejoFinal( new ComponenteSimples( artDir + info[2] ), new ComponenteSimples( artDir + info[3] ) );
 		arm.colocarAzulejo( p, ac );
 		mapa.addFicheiroAzulejo(p, info[2] + " " + info[3] );
+		
+		ac.addListeners(est);
 	}
 
 	private static void addEscadas(Armazem arm, MapaFicheiros mapa, String[] info) throws IOException {
@@ -113,6 +121,10 @@ public class LeitorFicheirosESTkoban {
 		AzulejoPorta ac = new AzulejoPorta( new ComponenteSimples( artDir + info[4] ), new ComponenteSimples( artDir + info[5] ), p2, aberta );
 		arm.colocarAzulejo( p, ac );
 		mapa.addFicheiroAzulejo(p, info[4] + " " + info[5] );
+		
+		for(Azulejo a : arm.getAzulejos()) {
+			a.addListeners(ac);
+		}
 	}
 
 	private static void addCaixote(Armazem arm, MapaFicheiros mapa, String[] info) throws IOException {
@@ -132,11 +144,6 @@ public class LeitorFicheirosESTkoban {
 		Operario op = new Operario( imgs );
 		arm.colocarOperario( p, op );
 		mapa.setFicheiroOperario( info[2] + " " + info[3] + " " + info[4] + " " + info[5] );
-		
-		
-		for(Azulejo a : arm.getAzulejos()) {
-			op.addListeners(a);
-		}
 	}
 
 	/** l� a posi��o a partir de uma string */

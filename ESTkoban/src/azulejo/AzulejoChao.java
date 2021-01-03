@@ -1,6 +1,7 @@
 package azulejo;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import armazem.Armazem;
 import armazem.Caixote;
@@ -66,7 +67,7 @@ public class AzulejoChao implements Azulejo {
 	
 	@Override
 	public void ocupar( Operario op ){
-		
+		notificaListeners(this.getPosicao());
 	}
 
 	@Override
@@ -75,7 +76,7 @@ public class AzulejoChao implements Azulejo {
 	}
 	
 	@Override
-	public boolean podeOcupar( Operario op ){			
+	public boolean podeOcupar( Operario op ){	
 		return true;
 	}
 	
@@ -120,6 +121,25 @@ public class AzulejoChao implements Azulejo {
 		}
 	}
 	
-	public void updateMovimento(Point p) {
+	private ArrayList<OperarioListener> ouvintesAzulejoChao = new ArrayList<OperarioListener>();
+	
+	public void notificaListeners(Point p) {
+    	for( int i = ouvintesAzulejoChao.size() -1; i >= 0; i-- ) {
+     		ouvintesAzulejoChao.get( i ).updatePosicaoOperario(p);
+       	}
+    }
+	
+	public void addListeners( OperarioListener m) {
+		ouvintesAzulejoChao.add(m);
 	}
+	
+	public void removeListeners( OperarioListener m ) {
+		ouvintesAzulejoChao.remove(m);
+	}
+	
+	@Override
+	public void updatePosicaoOperario(Point p) {
+		
+	}
+	
 }

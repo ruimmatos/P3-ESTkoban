@@ -1,6 +1,7 @@
 package azulejo;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 import armazem.Caixote;
 import prof.jogos2D.image.ComponenteVisual;
@@ -33,11 +34,13 @@ public class AzulejoFinal extends AzulejoChao {
 
 	@Override
 	public void ocupar( Caixote c ){
+		notificaEntrouListeners();
 		ocupado = true;
 	}
 	
 	@Override
 	public void remover( Caixote c ){
+		notificaSaiuListeners();
 		ocupado = false;
 	}
 	
@@ -69,6 +72,28 @@ public class AzulejoFinal extends AzulejoChao {
 		a.setVisual(getVisual().clone());
 		a.imgOcupado = imgOcupado.clone();
 		return a;
+	}
+	
+	private ArrayList<CaixoteListener> ouvintesAzulejoFinal = new ArrayList<CaixoteListener>();
+
+	public void notificaEntrouListeners() {
+    	for( int i = ouvintesAzulejoFinal.size() -1; i >= 0; i-- ) {
+    		ouvintesAzulejoFinal.get( i ).updatePosicaoCaixoteEntrou();
+       	}
+    }
+	
+	public void notificaSaiuListeners() {
+    	for( int i = ouvintesAzulejoFinal.size() -1; i >= 0; i-- ) {
+    		ouvintesAzulejoFinal.get( i ).updatePosicaoCaixoteSaiu();
+       	}
+    }
+	
+	public void addListeners( CaixoteListener c) {
+		ouvintesAzulejoFinal.add(c);
+	}
+	
+	public void removeListeners( CaixoteListener c ) {
+		ouvintesAzulejoFinal.remove(c);
 	}
 	
 }

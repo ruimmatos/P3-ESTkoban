@@ -10,14 +10,13 @@ import javax.swing.*;
 
 import armazem.Armazem;
 import armazem.Operario;
-import azulejo.Azulejo;
-import azulejo.AzulejoFinal;
+import azulejo.CaixoteListener;
 
 
 /**
  * Jogo ESTkoban
  */
-public class ESTkoban extends JFrame implements ActionListener {
+public class ESTkoban extends JFrame implements ActionListener, CaixoteListener {
 
 	/** vers�o */
 	private static final long serialVersionUID = 1L;
@@ -129,6 +128,7 @@ public class ESTkoban extends JFrame implements ActionListener {
 	public void playFicheiro( String ficheiro ){
 		oArmazem = new Armazem( new Point(0,0), 40);
 		try {
+			LeitorFicheirosESTkoban.getESTkoban(this);
 			LeitorFicheirosESTkoban.lerFicheiro( ficheiro, oArmazem, new MapaFicheiros() );
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -198,11 +198,14 @@ public class ESTkoban extends JFrame implements ActionListener {
 		// TODO esta forma esta muito mal feita, pois é preciso verificar quais
 		// os azulejos finais que estao vazios, o que leva a percorrer TODOS os azulejos
 		// para ver qual o seu tipo.
-		for( Azulejo a : oArmazem.getAzulejos() )
-			if( a instanceof AzulejoFinal )
-				// se um esta vazio nao ganhou
-				if( !((AzulejoFinal) a).estaOcupado() )
-					return false;
+//		for( Azulejo a : oArmazem.getAzulejos() )
+//			if( a instanceof AzulejoFinal )
+//				// se um esta vazio nao ganhou
+//				if( !((AzulejoFinal) a).estaOcupado() )
+//					return false;
+//		return true;
+		if(nCaixotesForaSitio!=0)
+			return false;
 		return true;
 	}
 	
@@ -289,4 +292,16 @@ public class ESTkoban extends JFrame implements ActionListener {
 		est.setVisible( true );
 		est.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 	}
+
+	@Override
+	public void updatePosicaoCaixoteEntrou() {
+		nCaixotesForaSitio--;
+	}
+	
+	@Override
+	public void updatePosicaoCaixoteSaiu() {
+		nCaixotesForaSitio++;
+	}
+	
+
 }

@@ -1,7 +1,6 @@
 package armazem;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 import azulejo.Azulejo;
 import prof.jogos2D.image.ComponenteVisual;

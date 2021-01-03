@@ -11,7 +11,7 @@ import prof.jogos2D.image.ComponenteVisual;
 /**
  * Representa os azulejos do jogo 
  */
-public interface Azulejo extends Cloneable, MovimentoListener {
+public interface Azulejo extends Cloneable, OperarioListener {
 
 	/** retorna a imagem do azulejo
 	 * @return a imagem do azulejo
@@ -121,6 +121,10 @@ public interface Azulejo extends Cloneable, MovimentoListener {
 	 */
 	public Azulejo clone();
 	
-	public void updateMovimento(Point p);
+	public void updatePosicaoOperario(Point p);
+	
+	public void addListeners( OperarioListener m );
+	
+	public void notificaListeners(Point p);
 
 }

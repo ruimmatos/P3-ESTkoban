@@ -108,20 +108,24 @@ public class AzulejoPorta extends AzulejoChao {
 		AzulejoPorta a = (AzulejoPorta) super.clone();
 		a.setVisual(getVisual().clone());
 		a.imgFechado = imgFechado.clone();
-		//a.setTrigger( (Point) getTrigger().clone());
 		return a;
 	}
 	
-	public void updateMovimento(Point p) {
-		if(p.getX() == getTrigger().getX() && p.getY() == getTrigger().getY()) {
-			System.out.println("Estou no trigger");
-			setAberto(!aberto);
-			if( !estaAberto() )
-				setVisual( imgFechado );
-			else
-				setVisual( imgAberto );
-		}
-			
-			
+	private void mudaEstadoPorta() {
+		aberto = !aberto;
+		if(!aberto)
+			setVisual(imgFechado);
+		else
+			setVisual(imgAberto);
+	}
+	
+	@Override
+	public void updatePosicaoOperario(Point p) {
+		if( estaNoTrigger(p) )
+			mudaEstadoPorta();
+	}
+
+	private boolean estaNoTrigger(Point p) {
+		return p.x==getTrigger().getX() && p.y==getTrigger().getY();
 	}
 }

@@ -2,10 +2,9 @@ package armazem;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import azulejo.Azulejo;
-import azulejo.MovimentoListener;
+import azulejo.OperarioListener;
 import prof.jogos2D.image.ComponenteVisual;
 
 /**
@@ -92,10 +91,7 @@ public class Operario {
 	    // o mover tem de ser repartido com o armaz�m,
 	    // fica aqui, mas tamb�m podia ficar no armaz�m
 	    armazem.colocarOperario( dest, this );
-	    System.out.println("mexi");
-	    System.out.println(listeners.size());
 	    
-	    notificaListeners(dest);
 	    return true;
 	}	
 	
@@ -158,19 +154,4 @@ public class Operario {
 		figura.desenhar( g );
 	}
 	
-	private ArrayList<MovimentoListener> listeners = new ArrayList<MovimentoListener>();
-	
-	private void notificaListeners(Point p) {
-    	for( int i = listeners.size() -1; i >= 0; i-- ) {
-     		listeners.get( i ).updateMovimento(p);
-       	}
-    }
-	
-	public void addListeners( MovimentoListener m) {
-		listeners.add(m);
-	}
-	
-	public void removeListeners( MovimentoListener m ) {
-		listeners.remove(m);
-	}
 }

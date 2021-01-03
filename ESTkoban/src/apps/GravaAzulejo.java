@@ -7,8 +7,7 @@ import azulejo.AzulejoDirecional;
 import azulejo.AzulejoEscadas;
 import azulejo.AzulejoFinal;
 import azulejo.AzulejoParede;
-import azulejo.AzulejoPorta;
-import azulejo.VisitanteAzulejos;
+
 import azulejo.VisitanteAzulejosDefault;
 
 public class GravaAzulejo extends VisitanteAzulejosDefault {
