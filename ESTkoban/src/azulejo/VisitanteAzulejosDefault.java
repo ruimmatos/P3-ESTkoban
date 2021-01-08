@@ -25,4 +25,8 @@ public abstract class VisitanteAzulejosDefault implements VisitanteAzulejos{
 	public void visitaAzulejoPorta(AzulejoPorta a) {
 		
 	}
+	
+	public void visitaAzulejoDimensao(AzulejoDimensao a) {
+		
+	}
 }

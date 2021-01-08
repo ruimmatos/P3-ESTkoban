@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import azulejo.Azulejo;
-import azulejo.OperarioListener;
 import prof.jogos2D.image.ComponenteVisual;
 
 /**

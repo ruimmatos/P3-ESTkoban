@@ -10,13 +10,14 @@ import javax.swing.*;
 
 import armazem.Armazem;
 import armazem.Operario;
-import azulejo.CaixoteListener;
+import azulejo.Azulejo;
+import azulejo.MovimentoListener;
 
 
 /**
  * Jogo ESTkoban
  */
-public class ESTkoban extends JFrame implements ActionListener, CaixoteListener {
+public class ESTkoban extends JFrame implements ActionListener, MovimentoListener {
 
 	/** vers�o */
 	private static final long serialVersionUID = 1L;
@@ -220,6 +221,12 @@ public class ESTkoban extends JFrame implements ActionListener, CaixoteListener 
 		nivel++;
 		iniciarJogo();		
 	}
+	
+	@Override
+	public void updatePosicaoCaixote(Azulejo a) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	/** zona de jogo
 	 */
@@ -291,16 +298,6 @@ public class ESTkoban extends JFrame implements ActionListener, CaixoteListener 
 		ESTkoban est = new ESTkoban( );
 		est.setVisible( true );
 		est.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-	}
-
-	@Override
-	public void updatePosicaoCaixoteEntrou() {
-		nCaixotesForaSitio--;
-	}
-	
-	@Override
-	public void updatePosicaoCaixoteSaiu() {
-		nCaixotesForaSitio++;
 	}
 	
 

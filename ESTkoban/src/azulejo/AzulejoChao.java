@@ -67,12 +67,12 @@ public class AzulejoChao implements Azulejo {
 	
 	@Override
 	public void ocupar( Operario op ){
-		notificaListeners(this.getPosicao());
+		
 	}
 
 	@Override
 	public void ocupar( Caixote c ){
-		
+		notificaMovimentoCaixote();
 	}
 	
 	@Override
@@ -102,7 +102,7 @@ public class AzulejoChao implements Azulejo {
 	
 	@Override
 	public void remover( Caixote c ){
-		
+		notificaMovimentoCaixote();
 	}
 
 	@Override
@@ -121,24 +121,29 @@ public class AzulejoChao implements Azulejo {
 		}
 	}
 	
-	private ArrayList<OperarioListener> ouvintesAzulejoChao = new ArrayList<OperarioListener>();
+	@Override
+	public void setTrigger(Point p) {
+		
+	}
 	
-	public void notificaListeners(Point p) {
-    	for( int i = ouvintesAzulejoChao.size() -1; i >= 0; i-- ) {
-     		ouvintesAzulejoChao.get( i ).updatePosicaoOperario(p);
+private ArrayList<MovimentoListener> ouvintesAzulejos = new ArrayList<MovimentoListener>();
+	
+	private void notificaMovimentoCaixote() {
+    	for( int i = ouvintesAzulejos.size() -1; i >= 0; i-- ) {
+    		ouvintesAzulejos.get( i ).updatePosicaoCaixote(this);
        	}
     }
 	
-	public void addListeners( OperarioListener m) {
-		ouvintesAzulejoChao.add(m);
+	public void addListeners( MovimentoListener c) {
+		ouvintesAzulejos.add(c);
 	}
 	
-	public void removeListeners( OperarioListener m ) {
-		ouvintesAzulejoChao.remove(m);
+	public void removeListeners( MovimentoListener c ) {
+		ouvintesAzulejos.remove(c);
 	}
-	
+
 	@Override
-	public void updatePosicaoOperario(Point p) {
+	public void updatePosicaoCaixote(Azulejo a) {
 		
 	}
 	

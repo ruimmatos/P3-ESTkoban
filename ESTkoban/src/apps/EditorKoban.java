@@ -53,6 +53,7 @@ public class EditorKoban extends JFrame {
 	private EstadoPorCaixote estadoPorCaixote = new EstadoPorCaixote();
 	private EstadoPorAzulejo estadoPorAzulejo = new EstadoPorAzulejo();
 	private EstadoPorPorta estadoPorPorta = new EstadoPorPorta();
+	private EstadoPorDimensao estadoPorDimensao = new EstadoPorDimensao();
 	private EstadoPorTrigger estadoPorTrigger = new EstadoPorTrigger();
 	
 	// constantes para os v�rios azulejos a inserir
@@ -95,7 +96,7 @@ public class EditorKoban extends JFrame {
 	private MapaFicheiros mapaFicheiros = new MapaFicheiros();
 	
 	// No azulejo porta � preciso saber qual �, para depois se atribuir o trigger
-	private AzulejoPorta portaCriada;
+	private Azulejo porTrigger;
 
 	/** coisas para a interface gr�fica */
 	private JToolBar tools;
@@ -388,6 +389,7 @@ public class EditorKoban extends JFrame {
 		tools.add( setupBotaoAzulejoDirecional( 0, -1, criaBotaoAcao( "icons/baixo.gif" ) ) );
 		tools.add( setupBotaoAzulejoPorta( true, criaBotaoAcao("icons/porta_aberta.gif") ) );
 		tools.add( setupBotaoAzulejoPorta( false, criaBotaoAcao( "icons/porta_fechada.gif") ) );
+		tools.add( setupBotaoAzulejoDimensao( criaBotaoAcao( "icons/dimensao.gif" ) ) );
 		return tools;
 	}
 	
@@ -458,6 +460,23 @@ public class EditorKoban extends JFrame {
 				imagens[0] = pedeImagem( "Imagem do ch�o", 0 );
 				azulejoSel = new AzulejoChao( criaImagem( 0 ) );
 
+			}
+		});
+		return bt;
+	}
+	
+	/** faz o setup do bot�o que ir� servir para inserir um azulejo dimensao
+	 * @param bt bot�o a configurar
+	 * @return o bot�o j� configurado
+	 */
+	private JToggleButton setupBotaoAzulejoDimensao( JToggleButton bt) {
+		bt.addActionListener( new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				estadoAtual = estadoPorDimensao;
+				resetImagens();
+				imagens[0] = pedeImagem( "Imagem da dimensao", 0 );
+				azulejoSel = new AzulejoDimensao( criaImagem( 0 ), new Point( 5,5) );
 			}
 		});
 		return bt;
@@ -753,7 +772,18 @@ public class EditorKoban extends JFrame {
 		@Override
 		void ratoPremido(MouseEvent e, Point p) {
 			criarAzulejo( p );
-			portaCriada = (AzulejoPorta)armazem.getAzulejo( p );
+			porTrigger = (AzulejoPorta)armazem.getAzulejo( p );
+			painelArmazem.repaint();
+			estadoAtual = estadoPorTrigger;
+			enableToolBar( tools, false );
+			painelArmazem.setCursor( Cursor.getPredefinedCursor( Cursor.CROSSHAIR_CURSOR ));
+		}
+	}
+	private class EstadoPorDimensao extends EstadoEdicao{
+		@Override
+		void ratoPremido(MouseEvent e, Point p) {
+			criarAzulejo( p );
+			porTrigger = (AzulejoDimensao)armazem.getAzulejo( p );
 			painelArmazem.repaint();
 			estadoAtual = estadoPorTrigger;
 			enableToolBar( tools, false );
@@ -763,8 +793,8 @@ public class EditorKoban extends JFrame {
 	private class EstadoPorTrigger extends EstadoEdicao {
 		@Override
 		void ratoPremido(MouseEvent e, Point p) {
-			estadoAtual = estadoPorPorta;
-			portaCriada.setTrigger( p );
+			//estadoAtual = estadoPorPorta;
+			porTrigger.setTrigger( p );
 			painelArmazem.setCursor( Cursor.getDefaultCursor() );
 			enableToolBar( tools, true );
 		}

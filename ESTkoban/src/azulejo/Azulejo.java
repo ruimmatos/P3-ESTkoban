@@ -11,7 +11,7 @@ import prof.jogos2D.image.ComponenteVisual;
 /**
  * Representa os azulejos do jogo 
  */
-public interface Azulejo extends Cloneable, OperarioListener {
+public interface Azulejo extends Cloneable, MovimentoListener {
 
 	/** retorna a imagem do azulejo
 	 * @return a imagem do azulejo
@@ -121,10 +121,13 @@ public interface Azulejo extends Cloneable, OperarioListener {
 	 */
 	public Azulejo clone();
 	
-	public void updatePosicaoOperario(Point p);
+	/**
+	 * metodo necessario para colocar trigger independentemente no tipo de azulejo no EditorKoban
+	 * @param p posicao do trigger
+	 */
+	public void setTrigger(Point p);
 	
-	public void addListeners( OperarioListener m );
+	public void addListeners( MovimentoListener c);
 	
-	public void notificaListeners(Point p);
-
+	public void removeListeners( MovimentoListener c );
 }

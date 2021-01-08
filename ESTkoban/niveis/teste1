@@ -1,0 +1,36 @@
+fundo.png
+chao 4,0 chao.png
+chao 4,1 chao.png
+chao 4,2 chao.png
+chao 4,3 chao.png
+chao 4,4 chao.png
+chao 5,0 chao.png
+chao 5,1 chao.png
+chao 5,2 chao.png
+chao 5,3 chao.png
+chao 5,4 chao.png
+chao 6,0 chao.png
+chao 6,1 chao.png
+chao 6,2 chao.png
+chao 6,3 chao.png
+final 6,4 finale2.png finale.png
+chao 7,0 chao.png
+chao 7,1 chao.png
+chao 7,2 chao.png
+chao 7,3 chao.png
+final 7,4 finale.png finale.png
+chao 8,0 chao.png
+chao 8,2 chao.png
+chao 8,4 chao.png
+chao 9,0 chao.png
+chao 9,1 chao.png
+chao 9,2 chao.png
+chao 9,3 chao.png
+chao 9,4 chao.png
+porta 8,1 A 13,2 porta_aberta_h.png porta_aberta_h.png
+porta 8,3 F 9,4 porta_fechada_h.png porta_fechada_h.png
+
+caixote 4,3 caixote.png
+caixote 5,3 caixote.png
+
+operario 5,1 operario_esq.png operario_cima.png operario_dir.png operario_baixo.png 

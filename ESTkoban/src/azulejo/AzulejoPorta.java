@@ -118,12 +118,6 @@ public class AzulejoPorta extends AzulejoChao {
 		else
 			setVisual(imgAberto);
 	}
-	
-	@Override
-	public void updatePosicaoOperario(Point p) {
-		if( estaNoTrigger(p) )
-			mudaEstadoPorta();
-	}
 
 	private boolean estaNoTrigger(Point p) {
 		return p.x==getTrigger().getX() && p.y==getTrigger().getY();

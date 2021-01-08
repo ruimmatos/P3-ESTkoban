@@ -34,13 +34,13 @@ public class AzulejoFinal extends AzulejoChao {
 
 	@Override
 	public void ocupar( Caixote c ){
-		notificaEntrouListeners();
+		super.ocupar(c);
 		ocupado = true;
 	}
 	
 	@Override
 	public void remover( Caixote c ){
-		notificaSaiuListeners();
+		super.remover(c);
 		ocupado = false;
 	}
 	
@@ -74,26 +74,20 @@ public class AzulejoFinal extends AzulejoChao {
 		return a;
 	}
 	
-	private ArrayList<CaixoteListener> ouvintesAzulejoFinal = new ArrayList<CaixoteListener>();
-
-	public void notificaEntrouListeners() {
-    	for( int i = ouvintesAzulejoFinal.size() -1; i >= 0; i-- ) {
-    		ouvintesAzulejoFinal.get( i ).updatePosicaoCaixoteEntrou();
-       	}
-    }
-	
-	public void notificaSaiuListeners() {
-    	for( int i = ouvintesAzulejoFinal.size() -1; i >= 0; i-- ) {
-    		ouvintesAzulejoFinal.get( i ).updatePosicaoCaixoteSaiu();
-       	}
-    }
-	
-	public void addListeners( CaixoteListener c) {
-		ouvintesAzulejoFinal.add(c);
-	}
-	
-	public void removeListeners( CaixoteListener c ) {
-		ouvintesAzulejoFinal.remove(c);
-	}
+//	private ArrayList<MovimentoListener> ouvintesAzulejoFinal = new ArrayList<MovimentoListener>();
+//	
+//	private void notificaMovimentoCaixote() {
+//    	for( int i = ouvintesAzulejoFinal.size() -1; i >= 0; i-- ) {
+//    		ouvintesAzulejoFinal.get( i ).updatePosicaoCaixote(this);
+//       	}
+//    }
+//	
+//	public void addListeners( MovimentoListener c) {
+//		ouvintesAzulejoFinal.add(c);
+//	}
+//	
+//	public void removeListeners( MovimentoListener c ) {
+//		ouvintesAzulejoFinal.remove(c);
+//	}
 	
 }

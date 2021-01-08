@@ -1,7 +1,6 @@
 package azulejo;
 
-import armazem.Caixote;
-import armazem.Operario;
+
 import prof.jogos2D.image.ComponenteVisual;
 
 
@@ -17,15 +16,6 @@ public class AzulejoParede extends AzulejoChao {
 		super(visual);	
 	}
 
-	@Override
-	public boolean podeOcupar( Operario op ){
-		return false;
-	}
-	
-	@Override
-	public boolean podeOcupar( Caixote op ){
-		return false;
-	}	
 	
 	@Override
 	public void aceita(VisitanteAzulejos v) {

@@ -14,4 +14,6 @@ public interface VisitanteAzulejos {
 	
 	void visitaAzulejoPorta(AzulejoPorta a);
 	
+	void visitaAzulejoDimensao(AzulejoDimensao a);
+	
 }

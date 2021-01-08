@@ -68,6 +68,9 @@ public class LeitorFicheirosESTkoban {
 			case "porta":
 				addPorta(arm, mapa, info);
 				break;
+			case "dimensao":
+				addDimensao(arm, mapa, info);
+				break;
 			}
 			linha = in.readLine();
 		}
@@ -87,6 +90,18 @@ public class LeitorFicheirosESTkoban {
 		AzulejoChao ac = new AzulejoChao( new ComponenteSimples( artDir + info[2] ) );
 		arm.colocarAzulejo( p, ac );
 		mapa.addFicheiroAzulejo(p, info[2] );
+	}
+	
+	private static void addDimensao(Armazem arm, MapaFicheiros mapa, String[] info) throws IOException {
+		Point p = lerPosicao( info[1] );
+		Point p2 = lerPosicao( info[2] );
+		AzulejoDimensao ad = new AzulejoDimensao( new ComponenteSimples( artDir + info[3] ), p2 );
+		arm.colocarAzulejo( p, ad );
+		mapa.addFicheiroAzulejo(p, info[3] );
+		
+		//for(Azulejo a : arm.getAzulejos()) {
+		//	a.addListeners(ad);
+		//}
 	}
 
 	private static void addFinal(Armazem arm, MapaFicheiros mapa, String[] info) throws IOException {
@@ -181,7 +196,7 @@ public class LeitorFicheirosESTkoban {
 				a.aceita(v);
 			}		
 			
-			VisitanteAzulejos vPortas = new GravaPortas(fout, mapaFich);
+			VisitanteAzulejos vUltimos = new GravaUltimos(fout, mapaFich);
 			
 			for( Azulejo a :  arm.getAzulejos() ) {				
 				if( a == null )
@@ -191,7 +206,7 @@ public class LeitorFicheirosESTkoban {
 				// TODO estes instanceofs devem desaparecer todos
 				// TODO estes instanceofs devem desaparecer todos
 
-				a.aceita(vPortas);
+				a.aceita(vUltimos);
 			}
 
 			fout.println( );
